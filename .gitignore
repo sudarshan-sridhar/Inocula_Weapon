@@ -1,0 +1,33 @@
+# ─── Secrets — never commit ───────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+id_rsa*
+credentials*
+*secret*
+
+# ─── Python ───────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+
+# ─── Jac runtime ──────────────────────────────────────────────────────
+.jac/
+.jac-venv/
+
+# ─── jac-client bundler artifacts ─────────────────────────────────────
+node_modules/
+.vite/
+dist/
+*.tsbuildinfo
+
+# ─── OS + editor ──────────────────────────────────────────────────────
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

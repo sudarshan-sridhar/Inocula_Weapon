@@ -1,0 +1,48 @@
+[project]
+name = "inocula-sentinel"
+version = "0.1.0"
+entry-point = "main.jac"
+
+[plugins.client]
+debug = true
+
+[plugins.client.vite.server]
+port = 3000
+
+[dependencies.npm]
+recharts = "^2.12.0"
+"lucide-react" = "^0.383.0"
+react = "^18.2.0"
+react-dom = "^18.2.0"
+react-router-dom = "^6.22.0"
+react-error-boundary = "^5.0.0"
+react-hook-form = "^7.71.0"
+zod = "^4.3.6"
+"@hookform/resolvers" = "^5.2.2"
+
+[dependencies.npm.dev]
+vite = "^6.4.1"
+"@vitejs/plugin-react" = "^4.2.1"
+typescript = "^5.3.3"
+"@types/react" = "^18.2.0"
+"@types/react-dom" = "^18.2.0"
+
+[serve]
+base_route_app = "app"
+
+# Phase 3: LLM-backed attack classification.
+# Default to mockllm so the app boots without an API key. When
+# ANTHROPIC_API_KEY is set in the environment, main.jac will swap to
+# anthropic/claude-sonnet-4-5 at runtime (see _make_classifier()).
+[plugins.byllm]
+[plugins.byllm.model]
+default_model = "mockllm"
+verbose = false
+
+[plugins.byllm.call_params]
+temperature = 0.2
+max_tokens = 512
+
+[plugins.byllm.litellm]
+drop_params = true
+debug = false
